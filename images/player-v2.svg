@@ -1,0 +1,80 @@
+<svg id="frame-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640">
+  <title>player-v2</title>
+
+  <defs>
+
+    // filter
+
+    <style type="text/css">
+      <![CDATA[
+        #dude{
+          <!-- filter: url(#myfilter); -->
+        }
+      ]]>
+    </style>
+
+    <filter id="myfilter">
+      <!-- filter stuff happening here -->
+    </filter>
+
+
+
+    <path id="left3" d="M136.85,298s-1.45,16.49,14.83,41.3c24.42,37.22,58.46,47.36,58.46,47.36" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28"/>
+    <line id="left2" x1="136.85" y1="297.97" x2="136.85" y2="418" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28"/>
+    <path id="left1" d="M137.11,298s1.45,16.49-14.83,41.3c-24.42,37.22-58.46,47.36-58.46,47.36" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28"/>
+
+    <path id="right3" d="M212.85,298s-1.45,16.49,14.83,41.3c24.42,37.22,58.46,47.36,58.46,47.36" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28"/>
+
+    <line id="right2" x1="212.85" y1="297.97" x2="212.85" y2="418" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28"/>
+
+    <path id="right1" d="M213.11,298s1.45,16.49-14.83,41.3c-24.42,37.22-58.46,47.36-58.46,47.36" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28"/>
+
+        <marker id="hand" viewBox="0 0 18 18" refX="9" refY="9" markerWidth="1.5" markerHeight="1.5" orient="auto">
+          <circle cx="9" cy="9" r="9" fill="#844040"/>
+        </marker>
+
+  </defs>
+
+<g id="dude">
+  <path id="legs" d="M252.21,504.5s45.61-45.83,37-73.58c-6.49-21-106.63-27.92-106.63-27.92S82.49,409.88,76,430.92C67.44,458.67,109,506,109,506" fill="none" stroke="#844040" stroke-miterlimit="10" stroke-width="22"  stroke-linecap="round" />
+  <g id="left-foot">
+    <path d="M122.82,521.18V497.74s-73.24-10.2-74.17,23.44Z" fill="#0d3560"/>
+    <rect x="49" y="522" width="74" height="1" fill="#6e86a0"/>
+    <path d="M80.71,507.88c-2.37-5.2-5-10.52-9.35-14.35-.52-.45-1.26.26-.76.76,4,4.1,6.77,8.95,9.22,14.11C80.11,509,81,508.48,80.71,507.88Z" fill="#fff"/>
+    <path d="M91,507.51c-3.37-5.67-6.75-11.69-11.51-16.33-.48-.47-1.15.23-.73.73A133.7,133.7,0,0,1,90.14,508,.47.47,0,0,0,91,507.51Z" fill="#fff"/>
+  </g>
+  <g id="right-foot">
+    <path d="M237,521.18V497.74s73.24-10.2,74.17,23.44Z" fill="#0d3560"/>
+    <rect x="236" y="522" width="76" height="1" fill="#6e86a0"/>
+    <path d="M279.14,507.88c2.37-5.2,5-10.52,9.35-14.35.52-.45,1.26.26.76.76-4,4.1-6.77,8.95-9.23,14.11C279.75,509,278.87,508.48,279.14,507.88Z" fill="#fff"/>
+    <path d="M268.9,507.51c3.37-5.67,6.75-11.69,11.51-16.33.48-.47,1.15.23.73.73A133.69,133.69,0,0,0,269.72,508,.47.47,0,0,1,268.9,507.51Z" fill="#fff"/>
+  </g>
+  <g id="topHalf">
+  <circle id="ball" cx="178.61" cy="488.13" r="38.37" fill="#ffad00"/>
+  <path id="left-arm" d="M137.11,298s1.45,16.49-14.83,41.3c-24.42,37.22-58.46,47.36-58.46,47.36" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28" marker-end="url(#hand)"/>
+  <path id="right-arm" d="M213.11,298s1.45,16.49-14.83,41.3c-24.42,37.22-58.46,47.36-58.46,47.36" fill="none" stroke="#844040" stroke-linecap="round" stroke-miterlimit="10" stroke-width="22.28" marker-end="url(#hand)"/>
+  <path id="leftsleeve" d="M149,314.84s21.12-26.71,9.6-35.43c-19-14.39-41,19.75-41,19.75Z" fill="#0d3560"/>
+  <path id="rightsleeve" d="M198.76,314.84s-21.12-26.71-9.6-35.43c19-14.39,41,19.75,41,19.75Z" fill="#0d3560"/>
+  <g id="body">
+    <rect x="137" y="268" width="76" height="146" rx="26.18" ry="26.18" fill="#f6f0e8"/>
+    <path d="M185.37,263v30.17a10.8,10.8,0,1,1-21.6,0V263Z" fill="#844040"/>
+    <g>
+      <path d="M161.41,347a9.45,9.45,0,0,1-8.39-4.35q-2.89-4.35-2.89-12.56,0-8,2.82-12.47a10.3,10.3,0,0,1,16.9,0q2.83,4.4,2.83,12.49t-2.9,12.57A9.46,9.46,0,0,1,161.41,347Zm0-5.33q2.52,0,3.18-4a46.72,46.72,0,0,0,.66-7.57,31.89,31.89,0,0,0-.88-8.65q-.88-2.94-2.91-2.94t-2.92,3a32.52,32.52,0,0,0-.87,8.6,31.75,31.75,0,0,0,.88,8.63Q159.38,341.64,161.36,341.64Z" fill="#0d3560"/>
+      <path d="M195.12,341.29v5.26H179.29v-5.26h4.15a38.78,38.78,0,0,1,2.71-11.5,47.17,47.17,0,0,1,5.55-10.93h-8.42v4.6H178v-9.72h20.5v4q-2.48,2.95-5,10.37A41.33,41.33,0,0,0,191,341.29Z" fill="#0d3560"/>
+    </g>
+    <path d="M212.75,390.46A26.18,26.18,0,0,1,186.58,416H162.22A26.18,26.18,0,0,1,136,390.46Z" fill="#0d3560"/>
+  </g>
+  <g id="head">
+    <rect x="140" y="176" width="70" height="128" rx="24.58" ry="24.58" fill="#844040"/>
+    <path d="M209.27,250.35v28.44a24.58,24.58,0,0,1-24.58,24.58H165.32a24.58,24.58,0,0,1-24.58-24.58V250.35Z" fill="#422020"/>
+    <circle cx="208.84" cy="237.78" r="7.63" fill="#844040"/>
+    <circle cx="140.3" cy="237.78" r="7.63" fill="#844040"/>
+    <path d="M193.9,240.74a19.8,19.8,0,0,1-38.26,0Z" fill="#844040"/>
+    <path d="M174.77,277.19c-5.78,0-10.65-7-12.06-15.45h24.12c-1.42,8.46-6.28,15.45-12.06,15.45" fill="#844040"/>
+    <circle cx="189.34" cy="225.7" r="2.58" fill="#302120" stroke="#30211f" stroke-miterlimit="10" stroke-width="1.49"/>
+    <circle cx="156.56" cy="225.7" r="2.57" fill="#302120" stroke="#30211f" stroke-miterlimit="10" stroke-width="1.49"/>
+    <path d="M177.09,215.86s-1.17,27.44,3.52,29.56-1.72,9.72-7.27,4.17c0,0-4.69,1.94-5.16-.17" fill="#844040" stroke="#30211f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.97"/>
+  </g>
+</g>
+</g>
+</svg>
