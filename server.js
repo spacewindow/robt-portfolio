@@ -9,7 +9,7 @@ app.use(express.static(__dirname));
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  res.render('../index.html.ejs');
+  response.render('../index.html.ejs');
 });
 
 app.listen(app.get('port'), function() {
