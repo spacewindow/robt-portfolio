@@ -1,17 +1,17 @@
-// server.js
-// load the things we need
 var express = require('express');
 var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname));
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname));
-
-// index page
-app.get('/', function(req, res) {
-    res.render('../index.html.ejs');
+app.get('/', function(request, response) {
+  res.render('../index.html.ejs');
 });
 
-app.listen(8080);
-console.log('8080 is the magic port');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
