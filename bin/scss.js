@@ -29,16 +29,17 @@ files.forEach((f) => {
 
 
     fs.writeFileSync(outFile, css.toString());
-    console.log(`css written to ${outFile}`);
 
-    // postcss([ autoprefixer ]).process(outFile).then(function (result) {
-    //   console.log('Autoprefixer running');
-    //     result.warnings().forEach(function (warn) {
-    //         console.warn(warn.toString());
-    //     });
-    //     fs.writeFileSync(outFile, result.toString());
-    //     console.log(result.css);
-    // });
+    let newCSS = fs.readFileSync(outFile);
+
+    postcss([ autoprefixer ]).process(newCSS).then(function (result) {
+      console.log('Autoprefixer running');
+        result.warnings().forEach(function (warn) {
+            console.warn(warn.toString());
+        });
+        fs.writeFileSync(outFile, result.toString());
+        console.log(result.css);
+    });
 
   });
 

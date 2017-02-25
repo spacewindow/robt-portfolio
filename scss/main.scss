@@ -10,4 +10,5 @@ svg{
 body{
   background: #000;
   transform: opacity 1s ease;
+  transition: opacity 1s ease-out;
 }
