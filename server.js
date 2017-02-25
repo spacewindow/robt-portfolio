@@ -12,6 +12,10 @@ app.get('/', function(request, response) {
   response.render('../index.html.ejs');
 });
 
+app.get('/about', function(request, response) {
+  response.render('../about.html.ejs');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
