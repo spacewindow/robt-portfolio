@@ -33,12 +33,11 @@ files.forEach((f) => {
     let newCSS = fs.readFileSync(outFile);
 
     postcss([ autoprefixer ]).process(newCSS).then(function (result) {
-      console.log('Autoprefixer running');
         result.warnings().forEach(function (warn) {
             console.warn(warn.toString());
         });
         fs.writeFileSync(outFile, result.toString());
-        console.log(result.css);
+        // console.log(result.css);
     });
 
   });

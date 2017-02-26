@@ -1,14 +1,4 @@
-@import '_normalize';
-
-svg{
-  position:absolute;
-  width: 360px;
-  height: 640px;
-  margin: 100px;
-}
-
-body{
-  background: #000;
-  transform: opacity 1s ease;
-  transition: opacity 1s ease-out;
-}
+// Import custom Bootstrap variables
+@import "bootstrap-variables";
+// Import Bootstrap for Sass
+@import "../bootstrap/stylesheets/_bootstrap"
