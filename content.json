@@ -1,0 +1,15 @@
+{
+  "name": "Report Builder",
+  "client": "Playground XYZ",
+  "description": "Part of the client interface for tracking the performance of mobile ad campaigns in real time",
+  "challenge": [
+    {
+      "text": "As part of their mobile advertising service, Playground offers detailed data reporting and analysis on the performance of ads to clients.",
+      "image": ""
+    },
+    {
+      "text": "",
+      "image": ""
+    }
+  ]
+}

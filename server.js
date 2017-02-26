@@ -8,12 +8,14 @@ app.use(express.static(__dirname));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
+// pages
+
 app.get('/', function(request, response) {
-  response.render('../index.html.ejs');
+  response.render('../views/index.html.ejs');
 });
 
 app.get('/about', function(request, response) {
-  response.render('../about.html.ejs');
+  response.render('../views/about.html.ejs');
 });
 
 app.listen(app.get('port'), function() {
