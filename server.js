@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+var data = require('./content.json');
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname));
@@ -11,7 +13,7 @@ app.set('view engine', 'ejs');
 // pages
 
 app.get('/', function(request, response) {
-  response.render('../views/index.html.ejs');
+  response.render('../views/index.html.ejs', data);
 });
 
 app.get('/about', function(request, response) {
