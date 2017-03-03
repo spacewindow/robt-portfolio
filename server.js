@@ -1,7 +1,9 @@
 var express = require('express');
 var app = express();
 
-var data = require('./content.json');
+var data = require('./content/content.json');
+// data += require('./content/content2.json');
+console.log(data);
 
 app.set('port', (process.env.PORT || 5000));
 
