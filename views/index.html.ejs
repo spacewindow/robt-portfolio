@@ -1,65 +1,64 @@
 <% include partials/header.html.ejs %>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1><%- challenge[0].text %></h1>
-        <h2>Hi there, I'm Rob Thwaites, UX and interaction designer</h2>
-        <p>I'm that guy - a designer who knows how to speak dev. I enjoy following the design process through, from research to design to development, or jumping in at any point along the way.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
+    <section class="work songs">
+        <div class="container">
+            <div class="row">
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                <div class="work__text">
+                    <article class="work__text__challenge">
+                        <h2>The Challenge</h2>
+                        <div class="para">
+                            <p>Volutpat suspendisse parturient sodales ac fusce vulputate mollis egestas felis parturient vestibulum quis aenean iaculis sociosqu varius dui consequat a ante vestibulum faucibus ad vehicula.</p>
+                            <p>Turpis eu praesent class augue a consequat vehicula purus facilisis curae placerat a adipiscing potenti a eleifend at placerat fringilla dui erat hendrerit parturient a viverra vivamus vestibulum.</p>
+                            <p>A dis imperdiet risus montes a suspendisse ad vulputate eleifend parturient natoque conubia consectetur vitae per morbi ac amet nec eros velit.</p>
+                        </div>
+                    </article>
+                    <article class="work__text__solution">
+                        <h2>The Solution</h2>
+                        <div class="para">
+                            <p>Volutpat suspendisse parturient sodales ac fusce vulputate mollis egestas felis parturient vestibulum quis aenean iaculis sociosqu varius dui consequat a ante vestibulum faucibus ad vehicula.</p>
+                            <p>Turpis eu praesent class augue a consequat vehicula purus facilisis curae placerat a adipiscing potenti a eleifend at placerat fringilla dui erat hendrerit parturient a viverra vivamus vestibulum.</p>
+                            <p>A dis imperdiet risus montes a suspendisse ad vulputate eleifend parturient natoque conubia consectetur vitae per morbi ac amet nec eros velit.</p>
+                        </div>
+                    </article>
+                    <article class="work__text__process">
+                        <h2>The Process</h2>
+                        <div class="para">
+                            <p>Volutpat suspendisse parturient sodales ac fusce vulputate mollis egestas felis parturient vestibulum quis aenean iaculis sociosqu varius dui consequat a ante vestibulum faucibus ad vehicula.</p>
+                            <p>Turpis eu praesent class augue a consequat vehicula purus facilisis curae placerat a adipiscing potenti a eleifend at placerat fringilla dui erat hendrerit parturient a viverra vivamus vestibulum.</p>
+                            <p>A dis imperdiet risus montes a suspendisse ad vulputate eleifend parturient natoque conubia consectetur vitae per morbi ac amet nec eros velit.</p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="work__images">
+                    <div class="work__images--challenge">
+                        <img src="http://placehold.it/1280x920" alt="">
+                        <img src="http://placehold.it/1280x920" alt="">
+                        <img src="http://placehold.it/1280x920" alt="">
+                    </div>
+
+                    <div class="work__images--solution">
+                        <img src="http://placehold.it/1280x920/ff9900" alt="">
+                        <img src="http://placehold.it/1280x920/ff9900" alt="">
+                        <img src="http://placehold.it/1280x920/ff9900" alt="">
+                    </div>
+
+                    <div class="work__images--process">
+                        <img src="http://placehold.it/1280x920/ff0000" alt="">
+                        <img src="http://placehold.it/1280x920/ff0000" alt="">
+                        <img src="http://placehold.it/1280x920/ff0000" alt="">
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+
         </div>
-      </div>
 
-      <hr>
-
-      <footer>
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container -->
-
-<% include partials/footer.html.ejs %>
+        <% include partials/footer.html.ejs %>

@@ -1,4 +1,44 @@
 // Import custom Bootstrap variables
 @import "bootstrap-variables";
 // Import Bootstrap for Sass
-@import "../bootstrap/stylesheets/_bootstrap"
+@import "../bootstrap/stylesheets/_bootstrap";
+
+.navbar-header__monogram{
+  height: 100%;
+  width: 60px;
+}
+
+.work__text{
+  @include make-md-column(4);
+
+  .para{
+    max-height: 0px;
+    overflow:hidden;
+  }
+}
+
+.work__images{
+  @include make-md-column(8);
+
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.scrolltest{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: blue;
+  color: white;
+  overflow-y:scroll;
+  z-index:99;
+}

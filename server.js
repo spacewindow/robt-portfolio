@@ -3,7 +3,7 @@ var app = express();
 
 var data = require('./content/content.json');
 // data += require('./content/content2.json');
-console.log(data);
+// console.log(data);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,7 +15,11 @@ app.set('view engine', 'ejs');
 // pages
 
 app.get('/', function(request, response) {
-  response.render('../views/index.html.ejs', data);
+  response.render('../views/index.html.ejs');
+});
+
+app.get('/scrolltest', function(request, response) {
+  response.render('../views/scrolltest.html.ejs');
 });
 
 app.get('/about', function(request, response) {
