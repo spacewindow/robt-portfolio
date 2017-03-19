@@ -1,29 +1,28 @@
-// var options = {
-// useEasing : false,
-// useGrouping : true,
-// separator : ',',
-// decimal : '.'
-// }
-// var amount = $('#countup').text();
-// amount = parseInt(amount);
-// var numAnim = new countUp("countup", 0, amount, 0, 3, options);
-// numAnim.start();
+var lastScroll = 0;
 
+var scrollDirection = function(element){
+  if(element.scrollTop > lastScroll){
+    lastScroll = element.scrollTop;
+    return 'down';
+  }else{
+    lastScroll = element.scrollTop;
+    return 'up';
+  }
+};
 
-// $(window).scroll(function() {
-//    var hT = $('#scroll-to').offset().top,
-//        hH = $('#scroll-to').outerHeight(),
-//        wH = $(window).height(),
-//        wS = $(this).scrollTop();
-//    if (wS > (hT+hH-wH)){
-//        console.log('H1 on the view!');
-//    }
-// });
+// unless all elements are loaded, which determine the scroll distances, they will be log incorrectly and scrollTriggers will not work
+$(window).on('load',function(){
 
-var docHeight = $(document).height();
-var scrollPercent;
+  // Note - jQuery returns a nodeList, not an array. Must be converted.
+  var imageSections = Array.from(document.querySelectorAll('#work__images > *'));
+  imageSections.forEach(function(element, index){
+    element.triggerUp = element.offsetTop + 30;
+    element.triggerDown = element.offsetTop - 30;
+  });
 
-$(document).scroll(function(e){
-  e.preventDefault();
-  $('.scrolltest').scrollTop($(this).scrollTop());
+  $('.work').scroll(function() {
+    var scrollPosition = this.scrollTop;
+    console.log(scrollPosition);
+  });
+
 });

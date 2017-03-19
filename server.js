@@ -22,6 +22,10 @@ app.get('/scrolltest', function(request, response) {
   response.render('../views/scrolltest.html.ejs');
 });
 
+app.get('/scrolltest2', function(request, response) {
+  response.render('../views/scrolltest2.html.ejs');
+});
+
 app.get('/about', function(request, response) {
   response.render('../views/about.html.ejs');
 });
