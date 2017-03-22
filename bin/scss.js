@@ -23,7 +23,8 @@ files.forEach((f) => {
     }
     const clean = new CleanCSS();
     const basename = path.basename(filename, '.scss');
-    const css = clean.minify(result.css).styles;
+    // const css = clean.minify(result.css).styles;
+    const css = result.css;
     const outFile = path.join(outpath, `${basename}.css`);
 
 

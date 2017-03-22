@@ -10,19 +10,63 @@ var scrollDirection = function(element){
   }
 };
 
+var imagesjq;
+
 // unless all elements are loaded, which determine the scroll distances, they will be log incorrectly and scrollTriggers will not work
 $(window).on('load',function(){
 
-  // Note - jQuery returns a nodeList, not an array. Must be converted.
-  var imageSections = Array.from(document.querySelectorAll('#work__images > *'));
-  imageSections.forEach(function(element, index){
-    element.triggerUp = element.offsetTop + 30;
-    element.triggerDown = element.offsetTop - 30;
+
+
+  imagesjq = $('#work__images > *');
+  console.log(imagesjq);
+
+  $.each(imagesjq, function(index, element){
+    element.triggerUp = element.offsetTop + 200;
+    element.triggerDown = element.offsetTop - 200;
+    element.triggerDirection = 'down';
   });
 
-  $('.work').scroll(function() {
-    var scrollPosition = this.scrollTop;
-    console.log(scrollPosition);
+  console.log(imagesjq);
+
+  $('#work').scroll(function() {
+
+    var main = this;
+    var scrollDir = scrollDirection(this); // putting this in a variable ended up being essential. Having the function result directly in the if statement was too inefficient somehow? The if statement never evaluated.
+
+    console.log('Scroll direction is ' + scrollDir + ' ' + this.scrollTop);
+
+    if(scrollDir === 'down'){
+
+      $.each(imagesjq, function(index, element){
+        // console.log('checking');
+
+        if (main.scrollTop >= this.triggerDown && this.triggerDirection === 'down'){
+          console.log(main.scrollTop, 'triggerDown', this.triggerDown, 'triggerDirection', this.triggerDirection);
+          var newClass = this.classList[0].split('--')[1];
+          console.log('adding class: ' + newClass);
+          this.triggerDirection = 'up';
+          // console.log('switched ' + this.classList[0] + 'triggerDirection to ' + this.triggerDirection);
+          $('#work__text').attr('class', 'work__text ' + newClass);
+        }
+      });
+
+    }else if(scrollDir === 'up'){
+
+      $.each(imagesjq, function(index, element){
+
+        if (main.scrollTop <= this.triggerUp && this.triggerDirection === 'up'){
+          console.log('triggerUp', this.triggerUp, 'triggerDirection', this.triggerDirection);
+          var newClass = this.classList[0].split('--')[1];
+          console.log('adding class: ' + newClass);
+          this.triggerDirection = 'down';
+          // console.log('switched ' + this.classList[0] + 'triggerDirection to ' + this.triggerDirection);
+          $('#work__text').attr('class', 'work__text ' + newClass);
+        }
+      });
+    }else{
+      console.log('error');
+    }
+
   });
 
 });
