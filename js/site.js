@@ -1,8 +1,9 @@
-$('body').scroll(function(){
-    console.log($('.body-scroll').scrollTop());
-  // $('.scroller').scrollLeft(scrollPos);
-});
+var scrollPos;
 
-// $('.scroller').scroll(function(){
-//   console.log('scroller going left');
-// });
+// could not simply track the <body> due to webkit bug, hence the .body-scroll element
+
+$('.body-scroll').scroll(function(){
+  scrollPos = $('.body-scroll').scrollTop()
+    console.log();
+  $('.scroller').scrollLeft(scrollPos);
+});
