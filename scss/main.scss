@@ -1,13 +1,104 @@
-// Import custom Bootstrap variables
 @import "_normalize";
+@import "_common";
 
-html, body{
-  width: 100%;
-  height: 100%;
-  margin:0;
-  padding:0;
+html{
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+html{
+  width:100%;
+  height:100%;
+  overflow: hidden;
 }
 
 body{
+  height: 100%;
+  width: 100%;
+  overflow-y:scroll;
+  // width: calc(100% + 20px);
+}
+
+.body-scroll{
+  position: relative;
+  height: 500%;
+
+}
+
+.scroller{
+  position: fixed;
+  width: calc(100% - 20px);
+  height: 100%;
+  top:0;
+  left:0;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.content{
   overflow: hidden;
+  display:flex;
+  flex-direction: row;
+  height: 100%;
+  width: 400%;
+}
+
+h1{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+h2{
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+p{
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+
+.logo{
+  position:absolute;
+  top:0;
+  left:0;
+  width: 30em;
+  transform-origin: top left;
+  transform: translateY(30em) rotate(-90deg);
+  text-align: right;
+}
+
+section{
+  padding: 0.5rem;
+}
+
+.menu__main-links{
+  a{
+    display:block;
+    font-size: 2rem;
+    text-decoration: none;
+  }
+}
+
+.menu__social-links{
+  a{
+    display:block;
+    text-decoration: none;
+  }
+}
+
+.work__bookend{
+  width: 10rem;
+  overflow: hidden;
+  height: 100%;
+}
+
+.work__bookend--active{
+  width: 30rem;
+  background: red;
+
+  h1{
+    font-size: 1.5rem;
+  }
 }
