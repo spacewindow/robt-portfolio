@@ -18,16 +18,12 @@ app.get('/', function(request, response) {
   response.render('../views/index.html.ejs');
 });
 
-app.get('/scrolltest', function(request, response) {
-  response.render('../views/scrolltest.html.ejs');
-});
-
-app.get('/scrolltest2', function(request, response) {
-  response.render('../views/scrolltest2.html.ejs');
-});
-
 app.get('/about', function(request, response) {
   response.render('../views/about.html.ejs');
+});
+
+app.get('/work/songs-for-the-fallen', function(request, response) {
+  response.render('../views/projects/songs-for-the-fallen.html.ejs');
 });
 
 app.listen(app.get('port'), function() {
