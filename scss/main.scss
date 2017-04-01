@@ -1,7 +1,5 @@
 // Import custom Bootstrap variables
-@import "bootstrap-variables";
-// Import Bootstrap for Sass
-@import "../bootstrap/stylesheets/_bootstrap";
+@import "_normalize";
 
 html, body{
   width: 100%;
@@ -12,58 +10,4 @@ html, body{
 
 body{
   overflow: hidden;
-}
-
-#work{
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
-.navbar-header__monogram{
-  height: 100%;
-  width: 60px;
-}
-
-.work__text{
-  @include make-md-column(4);
-
-  .para{
-    max-height: 0px;
-    overflow:hidden;
-  }
-}
-
-.work__text__article--challenge .para{
-  .work__text.challenge &{
-    max-height: 1000px;
-  }
-}
-.work__text__article--solution .para{
-  .work__text.solution &{
-    max-height: 1000px;
-  }
-}
-.work__text__article--process .para{
-  .work__text.process &{
-    max-height: 1000px;
-  }
-}
-
-.work__images{
-  @include make-md-column(8);
-
-  img{
-    display: block;
-    width: 100%;
-    height: 200px;
-    margin-bottom: 1em;
-  }
-}
-
-.work__images--solution img{
-  filter: sepia(100%) hue-rotate(200deg);
-}
-.work__images--process img{
-  filter: sepia(100%) hue-rotate(100deg);
 }

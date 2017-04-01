@@ -12,8 +12,12 @@ const files = glob.sync(path.join(__dirname, '/../scss/*.scss'));
 const outpath = path.join(__dirname, '/../css/');
 
 files.forEach((f) => {
-
   const filename = f;
+  const isInclude = path.basename(filename).indexOf('_');
+  if(isInclude >= 0){
+    // ignores include files beginning with '_'
+    return;
+  }
   sass.render({
     file: filename
   }, function(err, result) {
