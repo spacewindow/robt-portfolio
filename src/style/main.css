@@ -848,49 +848,49 @@ section.tall {
 }
 @font-face {
   font-family: "Interstate";
-  src: url("./fonts/interstateplus_regular-webfont.eot");
-  src: url("./fonts/interstateplus_regular-webfont.eot?#iefix")
+  src: url("../fonts/interstateplus_regular-webfont.eot");
+  src: url("../fonts/interstateplus_regular-webfont.eot?#iefix")
       format("embedded-opentype"),
-    url("./fonts/interstateplus_regular-webfont.ttf") format("truetype"),
-    url("./fonts/interstateplus_regular-webfont.woff") format("woff");
+    url("../fonts/interstateplus_regular-webfont.ttf") format("truetype"),
+    url("../fonts/interstateplus_regular-webfont.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Interstate";
-  src: url("./fonts/interstateplus_bold-webfont.eot");
-  src: url("./fonts/interstateplus_bold-webfont.eot?#iefix")
+  src: url("../fonts/interstateplus_bold-webfont.eot");
+  src: url("../fonts/interstateplus_bold-webfont.eot?#iefix")
       format("embedded-opentype"),
-    url("./fonts/interstateplus_bold-webfont.ttf") format("truetype"),
-    url("./fonts/interstateplus_bold-webfont.woff") format("woff");
+    url("../fonts/interstateplus_bold-webfont.ttf") format("truetype"),
+    url("../fonts/interstateplus_bold-webfont.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("./fonts/merriweather-bold-webfont.woff2") format("woff2"),
-    url("./fonts/merriweather-bold-webfont.woff") format("woff");
+  src: url("../fonts/merriweather-bold-webfont.woff2") format("woff2"),
+    url("../fonts/merriweather-bold-webfont.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("./fonts/merriweather-bolditalic-webfont.woff2") format("woff2"),
-    url("./fonts/merriweather-bolditalic-webfont.woff") format("woff");
+  src: url("../fonts/merriweather-bolditalic-webfont.woff2") format("woff2"),
+    url("../fonts/merriweather-bolditalic-webfont.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("./fonts/merriweather-italic-webfont.woff2") format("woff2"),
-    url("./fonts/merriweather-italic-webfont.woff") format("woff");
+  src: url("../fonts/merriweather-italic-webfont.woff2") format("woff2"),
+    url("../fonts/merriweather-italic-webfont.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Merriweather";
-  src: url("./fonts/merriweather-regular-webfont.woff2") format("woff2"),
-    url("./fonts/merriweather-regular-webfont.woff") format("woff");
+  src: url("../fonts/merriweather-regular-webfont.woff2") format("woff2"),
+    url("../fonts/merriweather-regular-webfont.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -2039,9 +2039,9 @@ html {
 footer {
   justify-content: center;
   height: 15rem;
-  background-image: url(./images/me.png),
+  background-image: url(../images/me.png),
     linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)),
-    url(./images/white-brick.jpg);
+    url(../images/white-brick.jpg);
   background-repeat: no-repeat, no-repeat, repeat;
   background-position: left bottom, 0 0, 0 0;
   background-size: contain, auto, auto 12rem;
@@ -2828,14 +2828,14 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-image: url(./images/wattyl/video-poster.png);
+  /* background-image: url(../images/wattyl/video-poster.png);
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat; */
   z-index: 2;
 }
 /* .edm-grid {
-  background-image: url(./images/email/email-litmus-grid.png);
+  background-image: url(../images/email/email-litmus-grid.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -3544,7 +3544,7 @@ li {
   width: 100%;
   height: auto;
   padding-top: 100%;
-  background: url(./images/screen-desktop.png);
+  background: url(../images/screen-desktop.png);
   background-size: cover;
 }
 .display--desktop .display__screen {
@@ -3583,7 +3583,7 @@ li {
   width: 100%;
   height: auto;
   padding-top: 196%;
-  background: url(./images/screen-mobile.png);
+  background: url(../images/screen-mobile.png);
   background-size: cover;
 }
 .display--mobile .display__screen {
@@ -4100,7 +4100,7 @@ li {
 }
 .phone-wrap1,
 .phone-wrap2 {
-  background-image: url(./images/mobile-store-locator/sl-phone1.jpg);
+  background-image: url(../images/mobile-store-locator/sl-phone1.jpg);
 }
 .phone-wrap1:after,
 .phone-wrap2:after {
@@ -4124,10 +4124,10 @@ li {
   }
 }
 .phone-wrap2 {
-  background-image: url(./images/mobile-store-locator/sl-phone2.jpg);
+  background-image: url(../images/mobile-store-locator/sl-phone2.jpg);
 }
 .phone-wrap3 {
-  background-image: url(./images/mobile-store-locator/sl-phone3.jpg);
+  background-image: url(../images/mobile-store-locator/sl-phone3.jpg);
 }
 .text-wrap h4 {
   line-height: 1.4 !important;
@@ -4226,7 +4226,7 @@ li {
 }
 #campaign-ux {
   height: 25rem;
-  background-image: url(./images/campaign-ux-FULL.jpg);
+  background-image: url(../images/campaign-ux-FULL.jpg);
 }
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
@@ -4237,14 +4237,14 @@ li {
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
   #campaign-ux {
-    background-image: url(./images/campaign-ux-MOB.jpg);
+    background-image: url(../images/campaign-ux-MOB.jpg);
     background-size: 100% auto;
     background-position: bottom center;
   }
 }
 #songs-responsive {
   height: 25rem;
-  background-image: url(./images/songs-responsive-FULL.jpg);
+  background-image: url(../images/songs-responsive-FULL.jpg);
   background-position: center;
 }
 @media (max-width: 550px) and (orientation: portrait),
@@ -4256,7 +4256,7 @@ li {
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
   #songs-responsive {
-    background-image: url(./images/songs-responsive-MOB.jpg);
+    background-image: url(../images/songs-responsive-MOB.jpg);
     background-size: 100% auto;
     background-position: bottom center;
   }
@@ -4274,7 +4274,7 @@ li {
 }
 #email-mobile {
   height: 25rem;
-  background-image: url(./images/email-mobile-FULL.jpg);
+  background-image: url(../images/email-mobile-FULL.jpg);
 }
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
@@ -4285,7 +4285,7 @@ li {
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
   #email-mobile {
-    background-image: url(./images/email-mobile-MOB.jpg);
+    background-image: url(../images/email-mobile-MOB.jpg);
     background-size: 100% auto;
     background-position: bottom center;
   }
@@ -4294,7 +4294,7 @@ li {
   height: 25rem;
   background-size: 100% auto;
   background-position: center center;
-  background-image: url(./images/email-desktop-FULL.jpg);
+  background-image: url(../images/email-desktop-FULL.jpg);
 }
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
@@ -4305,14 +4305,14 @@ li {
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
   #email-desktop {
-    background-image: url(./images/email-desktop-MOB.jpg);
+    background-image: url(../images/email-desktop-MOB.jpg);
     background-size: 100% auto;
     background-position: bottom center;
   }
 }
 #michael-thwaites-ipad {
   height: 25rem;
-  background-image: url(./images/michael-thwaites-ipad-FULL.jpg);
+  background-image: url(../images/michael-thwaites-ipad-FULL.jpg);
 }
 #michael-thwaites-ipad h4,
 #michael-thwaites-ipad p {
@@ -4328,14 +4328,14 @@ li {
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
   #michael-thwaites-ipad {
-    background-image: url(./images/michael-thwaites-ipad-MOB.jpg);
+    background-image: url(../images/michael-thwaites-ipad-MOB.jpg);
     background-size: 100% auto;
     background-position: bottom center;
   }
 }
 #michael-thwaites-imagery {
   height: 25rem;
-  background-image: url(./images/michael-thwaites-imagery-FULL.jpg);
+  background-image: url(../images/michael-thwaites-imagery-FULL.jpg);
 }
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
@@ -4346,7 +4346,7 @@ li {
 @media (max-width: 550px) and (orientation: portrait),
   (max-width: 480px) and (orientation: landscape) {
   #michael-thwaites-imagery {
-    background-image: url(./images/michael-thwaites-imagery-MOB.jpg);
+    background-image: url(../images/michael-thwaites-imagery-MOB.jpg);
     background-size: 100% auto;
     background-position: bottom center;
   }
