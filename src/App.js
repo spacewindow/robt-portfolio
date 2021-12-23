@@ -27,7 +27,6 @@ function App() {
       </div>
       <Outlet />
       <footer name="#contact" className="grid">
-        <a name="contact"></a>
         <div className="grid-cell grid12">
           <div className="footer__signoff">
             <h2>Let's create something together</h2>
