@@ -15,12 +15,14 @@ import SongsForTheFallen from "./pages/SongsForTheFallen";
 import Wattyl100Years from "./pages/Wattyl100Years";
 import Allhomes from "./pages/Allhomes";
 import Employment from "./pages/Employment";
+import NotFound from "./pages/NotFound";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="*" element={<NotFound />} />
           <Route index element={<Work />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />

@@ -384,6 +384,9 @@ body {
   color: #222222;
   position: relative;
 }
+#root {
+  overflow: auto;
+}
 body.showgrid:after {
   content: "";
   display: block;
