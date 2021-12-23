@@ -34,7 +34,7 @@ function App() {
               <a className="footer__email" href="mailto:rob@robthwaites.com">
                 rob@robthwaites.com
               </a>
-              <a className="footer__phone" tel="+61403899183">
+              <a className="footer__phone" href="tel:+61403899183">
                 0403 899 183
               </a>
             </div>
