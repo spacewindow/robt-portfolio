@@ -1,4 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { ReactComponent as Icons } from "./images/icons.svg";
 
 function App() {
@@ -20,13 +21,13 @@ function App() {
         </div>
 
         <div className="app__menu__links">
-          <a href="/#work">Work</a>
-          <a href="/about">About</a>
-          <a href="/#contact">Contact</a>
+          <Link to="/">Work</Link>
+          <Link to="/about">About</Link>
+          <HashLink to="#contact">Contact</HashLink>
         </div>
       </div>
       <Outlet />
-      <footer name="#contact" className="grid">
+      <footer id="contact" className="grid">
         <div className="grid-cell grid12">
           <div className="footer__signoff">
             <h2>Let's create something together</h2>
