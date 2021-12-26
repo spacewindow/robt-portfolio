@@ -21,22 +21,38 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="*" element={<NotFound />} />
-          <Route index element={<Work />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
+        <Route exact path="/" element={<App />}>
+          <Route exact path="*" element={<NotFound />} />
+          <Route exact index element={<Work />} />
+          <Route exact path="about" element={<About />} />
+          <Route exact path="contact" element={<Contact />} />
         </Route>
-        <Route path="/work/" element={<App />}>
-          <Route path="animated-characters" element={<AnimatedCharacters />} />
-          <Route path="campaign-analytics" element={<CampaignAnalytics />} />
-          <Route path="e-newsletter" element={<ENewsletters />} />
-          <Route path="michael-thwaites" element={<MichaelThwaites />} />
-          <Route path="mobile-store-locator" element={<MobileStoreLocator />} />
-          <Route path="songs-for-the-fallen" element={<SongsForTheFallen />} />
-          <Route path="wattyl-100-years" element={<Wattyl100Years />} />
-          <Route path="allhomes" element={<Allhomes />} />
-          <Route path="employment" element={<Employment />} />
+        <Route exact path="/work/" element={<App />}>
+          <Route
+            exact
+            path="animated-characters"
+            element={<AnimatedCharacters />}
+          />
+          <Route
+            exact
+            path="campaign-analytics"
+            element={<CampaignAnalytics />}
+          />
+          <Route exact path="e-newsletter" element={<ENewsletters />} />
+          <Route exact path="michael-thwaites" element={<MichaelThwaites />} />
+          <Route
+            exact
+            path="mobile-store-locator"
+            element={<MobileStoreLocator />}
+          />
+          <Route
+            exact
+            path="songs-for-the-fallen"
+            element={<SongsForTheFallen />}
+          />
+          <Route exact path="wattyl-100-years" element={<Wattyl100Years />} />
+          <Route exact path="allhomes" element={<Allhomes />} />
+          <Route exact path="employment" element={<Employment />} />
         </Route>
       </Routes>
     </HashRouter>
