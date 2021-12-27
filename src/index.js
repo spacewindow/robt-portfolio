@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./style/main.css";
 import App from "./App";
 import Contact from "./pages/Contact";
@@ -19,7 +19,7 @@ import NotFound from "./pages/NotFound";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<App />}>
           <Route exact path="*" element={<NotFound />} />
@@ -55,7 +55,7 @@ ReactDOM.render(
           <Route exact path="employment" element={<Employment />} />
         </Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
