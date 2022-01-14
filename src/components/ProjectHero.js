@@ -1,12 +1,11 @@
 import { css, cx } from "@emotion/css";
 import tinycolor from "tinycolor2";
-import heroImage from "../images/hero-animated-characters.jpg";
-
-console.log(heroImage);
 
 function ProjectHero(props) {
   const gradient2 = tinycolor(props.color).setAlpha(0).toRgbString();
   const gradient1 = tinycolor(props.color).setAlpha(0.9).toRgbString();
+
+  const heroImage = require("../images/hero-" + props.id + ".jpg");
 
   const heroStyles = css`
     background-color: ${props.color};

@@ -13,7 +13,7 @@ function AnimatedCharacters() {
       <ProjectHero
         title="Brand characters"
         client="Playground XYZ"
-        id=""
+        id="animated-characters"
         color="#fa83ab"
       />
       <section className="section--intro">
