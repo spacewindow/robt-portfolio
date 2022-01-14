@@ -22,7 +22,10 @@ function Work() {
         <div className="grid">
           {projects.map(({ id, title, client }, index) => (
             <div key={"title" + index} className="grid-cell grid6 work">
-              <Link to={"/work/" + id}>
+              <Link
+                to={"/work/" + id}
+                onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
+              >
                 <img src={require("../images/thumb-" + id + ".jpg")} alt="" />
                 <div className="work__details">
                   <p className="work__client">{client}</p>
