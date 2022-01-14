@@ -7,7 +7,6 @@ import mq from "../style/mediaQueries";
 
 function AppHeader(props) {
   const [solidHeader, setSolidHeader] = useState(true);
-  console.log("solidHeader", solidHeader);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
