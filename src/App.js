@@ -1,31 +1,12 @@
 import { Outlet, Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import { ReactComponent as Icons } from "./images/icons.svg";
+import AppHeader from "./components/AppHeader";
 
 function App() {
   return (
     <>
-      <div className="app__header grid">
-        <Icons />
-        <div className="grid-cell">
-          <Link to="/">
-            <svg
-              className="app__logo"
-              viewBox="0 0 300 300"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <use id="logo" x="0" y="0" xlinkHref="#logo"></use>
-              <use id="logo-circle" x="0" y="0" xlinkHref="#logo-circle"></use>
-            </svg>
-          </Link>
-        </div>
-
-        <div className="app__menu__links">
-          <Link to="/">Work</Link>
-          <Link to="/about">About</Link>
-          <HashLink to="#contact">Contact</HashLink>
-        </div>
-      </div>
+      <Icons />
+      <AppHeader />
       <Outlet />
       <footer id="contact" className="grid">
         <div className="grid-cell grid12">

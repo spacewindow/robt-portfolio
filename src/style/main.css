@@ -1585,15 +1585,7 @@ html {
     height: 2.6rem;
   }
 }
-.init .app__logo {
-  transform: translateY(0%);
-}
-.init .app__logo #logo-circle {
-  opacity: 1;
-}
-.init .app__logo #logo {
-  opacity: 0;
-}
+
 .app__menu__links {
   display: flex;
   align-items: center;
@@ -1643,18 +1635,6 @@ html {
 }
 .index .app__menu__links a {
   color: #222222 !important;
-}
-.init .app__menu__links {
-  transform: translateY(50%);
-}
-.init .app__menu__links a {
-  color: #ffffff;
-}
-@media (max-width: 550px) and (orientation: portrait),
-  (max-width: 480px) and (orientation: landscape) {
-  .init .app__menu__links {
-    transform: translateY(40%);
-  }
 }
 .app__header {
   position: fixed;
