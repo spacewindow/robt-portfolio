@@ -1,7 +1,11 @@
-import Wizard from "../images/animated-characters/character-wizard.mp4";
 import ProjectHero from "../components/ProjectHero";
-
-console.log("Wizard", Wizard);
+import WizardVideo from "../images/animated-characters/character-wizard.mp4";
+import WizardContextVideo from "../images/animated-characters/character-wizard-context.mp4";
+import PlayerVideo from "../images/animated-characters/character-player.mp4";
+import PlayerContextVideo from "../images/animated-characters/character-player-context.mp4";
+import RunnerVideo from "../images/animated-characters/character-runner.mp4";
+import RunnerContextVideo from "../images/animated-characters/character-runner-context.mp4";
+import CharacterSketches from "../images/animated-characters/character-sketches.jpg";
 
 function AnimatedCharacters() {
   return (
@@ -39,7 +43,7 @@ function AnimatedCharacters() {
         >
           <div className="video-slide main-slide">
             <video autoPlay loop muted playsInline>
-              <source src={Wizard} />
+              <source src={WizardVideo} />
             </video>
           </div>
         </div>
@@ -53,7 +57,7 @@ function AnimatedCharacters() {
               <div className="display__screen">
                 <div className="video-slide">
                   <video autoPlay loop muted playsInline>
-                    <source src="../images/animated-characters/character-wizard-context.mp4" />
+                    <source src={WizardContextVideo} />
                   </video>
                 </div>
               </div>
@@ -72,7 +76,7 @@ function AnimatedCharacters() {
               <div className="display__screen">
                 <div className="video-slide">
                   <video autoPlay loop muted playsInline>
-                    <source src="../images//animated-characters/character-player-context.mp4" />
+                    <source src={PlayerContextVideo} />
                   </video>
                 </div>
               </div>
@@ -82,7 +86,7 @@ function AnimatedCharacters() {
         <div className="image-block image-block--right">
           <div className="video-slide main-slide">
             <video autoPlay loop muted playsInline>
-              <source src="../images/animated-characters/character-player.mp4" />
+              <source src={PlayerVideo} />
             </video>
           </div>
         </div>
@@ -92,7 +96,7 @@ function AnimatedCharacters() {
         <div className="image-block image-block--left">
           <div className="video-slide main-slide">
             <video autoPlay loop muted playsInline>
-              <source src="../images/animated-characters/character-runner.mp4" />
+              <source src={RunnerVideo} />
             </video>
           </div>
         </div>
@@ -105,7 +109,7 @@ function AnimatedCharacters() {
               <div className="display__screen">
                 <div className="video-slide">
                   <video autoPlay loop muted playsInline>
-                    <source src="../images//animated-characters/character-runner-context.mp4" />
+                    <source src={RunnerContextVideo} />
                   </video>
                 </div>
               </div>
@@ -118,8 +122,7 @@ function AnimatedCharacters() {
         <div
           className="image-full"
           style={{
-            backgroundImage:
-              "url(../images/animated-characters/character-sketches.jpg)",
+            backgroundImage: "url(" + CharacterSketches + ")",
           }}
         ></div>
       </section>
