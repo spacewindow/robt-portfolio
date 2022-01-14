@@ -1,6 +1,17 @@
+import Wizard from "../images/animated-characters/character-wizard.mp4";
+import ProjectHero from "../components/ProjectHero";
+
+console.log("Wizard", Wizard);
+
 function AnimatedCharacters() {
   return (
     <>
+      <ProjectHero
+        title="Brand characters"
+        client="Playground XYZ"
+        id=""
+        color="#fa83ab"
+      />
       <section className="section--intro">
         <div className="grid">
           <div
@@ -28,7 +39,7 @@ function AnimatedCharacters() {
         >
           <div className="video-slide main-slide">
             <video autoPlay loop muted playsInline>
-              <source src="../images/animated-characters/character-wizard.mp4" />
+              <source src={Wizard} />
             </video>
           </div>
         </div>
