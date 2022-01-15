@@ -21,13 +21,19 @@ import React, { useState, useRef } from "react";
 SwiperCore.use([Navigation]);
 
 function CampaignAnalytics() {
+  const [swiper, setSwiper] = useState(null);
+
   const videoRef = useRef();
 
   const chapters = [5, 10, 15, 20];
 
   const handleChapter = (chapterNumber) => {
     const video = videoRef.current;
-    video.currentTime = chapters[chapterNumber - 1];
+    video.currentTime = chapters[chapterNumber];
+  };
+
+  const handleSlideChange = () => {
+    handleChapter(swiper.activeIndex);
   };
 
   return (
@@ -65,7 +71,12 @@ function CampaignAnalytics() {
           </div>
 
           <div className="grid-cell grid3 bottom-content">
-            <Swiper navigation={true} className="display__captions">
+            <Swiper
+              navigation={true}
+              className="display__captions"
+              onSwiper={setSwiper}
+              onSlideChange={handleSlideChange}
+            >
               <SwiperSlide>
                 <p>
                   Campaigns Listing: a overview of all your active campaigns,
@@ -104,13 +115,6 @@ function CampaignAnalytics() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="buttons">
-        <button onClick={() => handleChapter(1)}>Chapter 1</button>
-        <button onClick={() => handleChapter(2)}>Chapter 2</button>
-        <button onClick={() => handleChapter(3)}>Chapter 3</button>
-        <button onClick={() => handleChapter(4)}>Chapter 4</button>
       </section>
 
       <section className="section--details first">
