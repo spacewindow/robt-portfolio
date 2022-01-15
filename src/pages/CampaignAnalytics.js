@@ -15,11 +15,17 @@ import "swiper/css/navigation";
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation } from "swiper";
+import React, { useState, useRef } from "react";
+import { Controller } from "swiper";
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
 
 function CampaignAnalytics() {
+  const videoRef = useRef();
+
+  const [controlledSwiper, setControlledSwiper] = useState(null);
+
   return (
     <>
       <ProjectHero
@@ -55,56 +61,61 @@ function CampaignAnalytics() {
           </div>
 
           <div className="grid-cell grid3 bottom-content">
-            <div className="display__captions">
-              <div className="caption caption1">
+            <Swiper
+              modules={[Controller]}
+              controller={{ control: controlledSwiper }}
+              navigation={true}
+              className="display__captions"
+            >
+              <SwiperSlide>
                 <p>
                   Campaigns Listing: a overview of all your active campaigns,
                   with alerts against placements that are underperforming.
                 </p>
-              </div>
-              <div className="caption caption2">
+              </SwiperSlide>
+              <SwiperSlide>
                 <p>
                   Reporting Dashboard: data visualisations of key performance
                   metrics give users insight into how the campaign is
                   delivering, or generating audience engagement.
                 </p>
-              </div>
-              <div className="caption caption3">
+              </SwiperSlide>
+              <SwiperSlide>
                 <p>
                   Notes and chart annotations assist team members to communicate
                   effectively on steps taken to optimise performance.
                 </p>
-              </div>
-              <div className="caption caption4">
+              </SwiperSlide>
+              <SwiperSlide>
                 <p>
                   Users gain insight into their campaign success by using simple
                   controls to segment their data and make visual comparisons.
                 </p>
-              </div>
-            </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
 
           <div className="grid-cell grid9 grid-cell--display">
             <div className="display__screen__wrapper">
               <div className="display__screen">
-                <Swiper navigation={true} className="mySwiper">
+                <Swiper modules={[Controller]} onSwiper={setControlledSwiper}>
                   <SwiperSlide>
-                    <video autoPlay loop muted playsInline>
+                    <video autoPlay loop muted playsInline controls>
                       <source src={SlideVideo0} />
                     </video>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <video autoPlay loop muted playsInline>
+                    <video autoPlay loop muted playsInline controls>
                       <source src={SlideVideo1} />
                     </video>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <video autoPlay loop muted playsInline>
+                    <video autoPlay loop muted playsInline controls>
                       <source src={SlideVideo2} />
                     </video>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <video autoPlay loop muted playsInline>
+                    <video autoPlay loop muted playsInline controls>
                       <source src={SlideVideo3} />
                     </video>
                   </SwiperSlide>
