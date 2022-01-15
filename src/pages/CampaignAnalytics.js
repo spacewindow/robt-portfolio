@@ -1,39 +1,45 @@
 import ProjectHero from "../components/ProjectHero";
-import SlideVideo0 from "../images/campaign-analytics/campaigns_0.mp4";
-import SlideVideo1 from "../images/campaign-analytics/campaigns_1.mp4";
-import SlideVideo2 from "../images/campaign-analytics/campaigns_2.mp4";
-import SlideVideo3 from "../images/campaign-analytics/campaigns_3.mp4";
+import SlideVideo0 from "../images/campaign-analytics/campaigns-full.mp4";
 import Image1 from "../images/campaign-analytics/detail6.jpg";
 import Image2 from "../images/campaign-analytics/detail5.jpg";
 import Image3 from "../images/campaign-analytics/detail3.jpg";
 import Image4 from "../images/campaign-analytics/detail4.jpg";
+import pdf from "../images/campaign-analytics/Rob Thwaites - Campaign Analytics UX.pdf";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // import Swiper core and required modules
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 import React, { useState, useRef } from "react";
 
 // install Swiper modules
-SwiperCore.use([Navigation]);
+SwiperCore.use([Navigation, Pagination]);
 
 function CampaignAnalytics() {
+  // Swiper for captions
   const [swiper, setSwiper] = useState(null);
+
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+  const paginationRef = useRef(null);
+
+  const handleSlideChange = () => {
+    handleChapter(swiper.activeIndex);
+  };
+
+  // Video for visuals
 
   const videoRef = useRef();
 
-  const chapters = [5, 10, 15, 20];
+  const chapters = [0, 29, 46.5, 67];
 
   const handleChapter = (chapterNumber) => {
     const video = videoRef.current;
     video.currentTime = chapters[chapterNumber];
-  };
-
-  const handleSlideChange = () => {
-    handleChapter(swiper.activeIndex);
   };
 
   return (
@@ -71,38 +77,64 @@ function CampaignAnalytics() {
           </div>
 
           <div className="grid-cell grid3 bottom-content">
-            <Swiper
-              navigation={true}
-              className="display__captions"
-              onSwiper={setSwiper}
-              onSlideChange={handleSlideChange}
-            >
-              <SwiperSlide>
-                <p>
-                  Campaigns Listing: a overview of all your active campaigns,
-                  with alerts against placements that are underperforming.
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <p>
-                  Reporting Dashboard: data visualisations of key performance
-                  metrics give users insight into how the campaign is
-                  delivering, or generating audience engagement.
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <p>
-                  Notes and chart annotations assist team members to communicate
-                  effectively on steps taken to optimise performance.
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <p>
-                  Users gain insight into their campaign success by using simple
-                  controls to segment their data and make visual comparisons.
-                </p>
-              </SwiperSlide>
-            </Swiper>
+            <div className="display__nav start">
+              <div
+                className="display__nav__arrow display__nav__arrow--left"
+                ref={prevRef}
+              ></div>
+              <div
+                ref={paginationRef}
+                className="swiper-pagination-custom"
+              ></div>
+              <div
+                className="display__nav__arrow display__nav__arrow--right"
+                ref={nextRef}
+              ></div>
+            </div>
+            <div className="display__captions">
+              <Swiper
+                // modules={[Navigation, Pagination]}
+                navigation={{
+                  prevEl: prevRef.current,
+                  nextEl: nextRef.current,
+                }}
+                pagination={{
+                  el: paginationRef.current,
+                  clickable: true,
+                }}
+                className="display__captions"
+                onSwiper={setSwiper}
+                onSlideChange={handleSlideChange}
+              >
+                <SwiperSlide>
+                  <p>
+                    Users login to see an overview of all their active
+                    campaigns, with alerts against ad placements that are
+                    underperforming.
+                  </p>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <p>
+                    The Reporting dashboard visualises key performance metrics,
+                    giving users insight into how well their ads are delivering
+                    against expected benchmarks.
+                  </p>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <p>
+                    Team members can annotate charts and share notes on steps
+                    they have taken to optimise ad placement performance.
+                  </p>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <p>
+                    Users are provided simple controls to segment their data,
+                    make visual comparisons, and better understand their
+                    campaign's success.
+                  </p>
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </div>
 
           <div className="grid-cell grid9 grid-cell--display">
@@ -158,10 +190,7 @@ function CampaignAnalytics() {
             interfaces.
           </p>
           <p>
-            <a
-              target="_blank"
-              href="/images/campaign-analytics/Rob Thwaites - Campaign Analytics UX.pdf"
-            >
+            <a target="_blank" href={pdf}>
               <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet">
                 <use x="0" y="0" xlinkHref="#pdf"></use>
               </svg>
