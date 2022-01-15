@@ -16,13 +16,19 @@ import "swiper/css/navigation";
 // import Swiper core and required modules
 import SwiperCore, { Navigation } from "swiper";
 import React, { useState, useRef } from "react";
-import { Controller } from "swiper";
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
 
 function CampaignAnalytics() {
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const videoRef = useRef();
+
+  const chapters = [5, 10, 15, 20];
+
+  const handleChapter = (chapterNumber) => {
+    const video = videoRef.current;
+    video.currentTime = chapters[chapterNumber - 1];
+  };
 
   return (
     <>
@@ -59,12 +65,7 @@ function CampaignAnalytics() {
           </div>
 
           <div className="grid-cell grid3 bottom-content">
-            <Swiper
-              modules={[Controller]}
-              controller={{ control: controlledSwiper }}
-              navigation={true}
-              className="display__captions"
-            >
+            <Swiper navigation={true} className="display__captions">
               <SwiperSlide>
                 <p>
                   Campaigns Listing: a overview of all your active campaigns,
@@ -96,32 +97,20 @@ function CampaignAnalytics() {
           <div className="grid-cell grid9 grid-cell--display">
             <div className="display__screen__wrapper">
               <div className="display__screen">
-                <Swiper modules={[Controller]} onSwiper={setControlledSwiper}>
-                  <SwiperSlide>
-                    <video autoPlay loop muted playsInline controls>
-                      <source src={SlideVideo0} />
-                    </video>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <video autoPlay loop muted playsInline controls>
-                      <source src={SlideVideo1} />
-                    </video>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <video autoPlay loop muted playsInline controls>
-                      <source src={SlideVideo2} />
-                    </video>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <video autoPlay loop muted playsInline controls>
-                      <source src={SlideVideo3} />
-                    </video>
-                  </SwiperSlide>
-                </Swiper>
+                <video autoPlay loop muted playsInline controls ref={videoRef}>
+                  <source src={SlideVideo0} />
+                </video>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="buttons">
+        <button onClick={() => handleChapter(1)}>Chapter 1</button>
+        <button onClick={() => handleChapter(2)}>Chapter 2</button>
+        <button onClick={() => handleChapter(3)}>Chapter 3</button>
+        <button onClick={() => handleChapter(4)}>Chapter 4</button>
       </section>
 
       <section className="section--details first">
