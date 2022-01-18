@@ -1,5 +1,6 @@
 import ProjectHero from "../components/ProjectHero";
-import SlideVideo0 from "../images/campaign-analytics/campaigns-full.mp4";
+import Video from "../images/campaign-analytics/campaigns-full.mp4";
+import VideoChapters from "../images/campaign-analytics/video-chapters.vtt";
 import Image1 from "../images/campaign-analytics/detail6.jpg";
 import Image2 from "../images/campaign-analytics/detail5.jpg";
 import Image3 from "../images/campaign-analytics/detail3.jpg";
@@ -14,7 +15,7 @@ import "swiper/css/pagination";
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from "swiper";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
@@ -28,18 +29,34 @@ function CampaignAnalytics() {
   const paginationRef = useRef(null);
 
   const handleSlideChange = () => {
-    handleChapter(swiper.activeIndex);
+    syncVideo(swiper.activeIndex);
+  };
+
+  const syncVideo = (chapterIndex) => {
+    const video = CAVideo.current;
+    const chapterId = chapterIndex.toString();
+    video.currentTime = chapterId;
   };
 
   // Video for visuals
 
-  const videoRef = useRef();
+  const CAVideo = useRef();
+  const CAVideoTrackRef = useRef();
 
-  const chapters = [0, 29, 46.5, 67];
+  // sync video with slideShow
 
-  const handleChapter = (chapterNumber) => {
-    const video = videoRef.current;
-    video.currentTime = chapters[chapterNumber];
+  useEffect(() => {
+    // on load, set an event listener on specific <track> DOM element: onCueChange does not exist in ReactJS, annoyingly
+    CAVideoTrackRef.current.oncuechange = (e) => {
+      handleCueChange(e);
+    };
+  }, []);
+
+  const handleCueChange = (event) => {
+    let chapterIndex = event.target.track.activeCues[0].id;
+    chapterIndex = parseInt(chapterIndex); // turn id string into an integer
+    console.log("chapter number is " + chapterIndex);
+    swiper.slideTo(chapterIndex);
   };
 
   return (
@@ -140,8 +157,25 @@ function CampaignAnalytics() {
           <div className="grid-cell grid9 grid-cell--display">
             <div className="display__screen__wrapper">
               <div className="display__screen">
-                <video autoPlay loop muted playsInline controls ref={videoRef}>
-                  <source src={SlideVideo0} />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  ref={CAVideo}
+                  onChange={() => console.log("track change event")}
+                >
+                  <source src={Video} />
+                  <track
+                    ref={CAVideoTrackRef}
+                    kind="chapters"
+                    label="Locations"
+                    src={VideoChapters}
+                    srcLang="en"
+                    default
+                    type="text/vtt"
+                  />
                 </video>
               </div>
             </div>
