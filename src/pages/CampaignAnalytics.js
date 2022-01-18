@@ -24,6 +24,8 @@ function CampaignAnalytics() {
   // Swiper for captions
   const [swiper, setSwiper] = useState(null);
 
+  const slideTo = (index) => swiper.slideTo(index);
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const paginationRef = useRef(null);
@@ -34,8 +36,8 @@ function CampaignAnalytics() {
 
   const syncVideo = (chapterIndex) => {
     const video = CAVideo.current;
-    const chapterId = chapterIndex.toString();
-    video.currentTime = chapterId;
+    const chapterStartTime = video.textTracks[0].cues[chapterIndex].startTime;
+    video.currentTime = chapterStartTime;
   };
 
   // Video for visuals
@@ -55,8 +57,8 @@ function CampaignAnalytics() {
   const handleCueChange = (event) => {
     let chapterIndex = event.target.track.activeCues[0].id;
     chapterIndex = parseInt(chapterIndex); // turn id string into an integer
-    console.log("chapter number is " + chapterIndex);
-    swiper.slideTo(chapterIndex);
+    // console.log("chapter number is " + chapterIndex);
+    slideTo(chapterIndex);
   };
 
   return (
