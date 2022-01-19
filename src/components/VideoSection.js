@@ -1,5 +1,7 @@
 import Video from "../images/campaign-analytics/campaigns-full.mp4";
-import VideoChapters from "../images/campaign-analytics/video-chapters.vtt";
+import raw from "raw.macro";
+// WebVTT file imported dynamically below using require(path + props.id) for <video><track> Read with raw(path + props.id) + parsed with node-webvtt below to generate an array for <SwiperSlide /> creation
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -14,7 +16,14 @@ import React, { useState, useRef, useEffect } from "react";
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
+const webvtt = require("node-webvtt");
+
 function VideoSection(props) {
+  // Read WebVTT file and convert to object with cues Array
+  const id = props.id;
+  const webvttText = raw(`../images/${id}/video-chapters.vtt`);
+  const webvttObj = webvtt.parse(webvttText);
+
   // Swiper for captions
   const [swiper, setSwiper] = useState(null);
 
@@ -93,32 +102,11 @@ function VideoSection(props) {
               onSwiper={setSwiper}
               onSlideChange={handleSlideChange}
             >
-              <SwiperSlide>
-                <p>
-                  Users login to see an overview of all their active campaigns,
-                  with alerts against ad placements that are underperforming.
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <p>
-                  The Reporting dashboard visualises key performance metrics,
-                  giving users insight into how well their ads are delivering
-                  against expected benchmarks.
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <p>
-                  Team members can annotate charts and share notes on steps they
-                  have taken to optimise ad placement performance.
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <p>
-                  Users are provided simple controls to segment their data, make
-                  visual comparisons, and better understand their campaign's
-                  success.
-                </p>
-              </SwiperSlide>
+              {webvttObj.cues.map((cue, index) => (
+                <SwiperSlide key={"cue" + index}>
+                  <p>{cue.text}</p>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
@@ -140,7 +128,8 @@ function VideoSection(props) {
                   ref={CAVideoTrackRef}
                   kind="chapters"
                   label="Locations"
-                  src={VideoChapters}
+                  //   src={VideoChapters}
+                  src={require("../images/" + props.id + "/video-chapters.vtt")}
                   srcLang="en"
                   default
                   type="text/vtt"

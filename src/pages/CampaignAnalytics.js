@@ -35,7 +35,7 @@ function CampaignAnalytics() {
         </div>
       </section>
 
-      <VideoSection screenSize="desktop" />
+      <VideoSection screenSize="desktop" id="campaign-analytics" />
 
       <section className="section--details first">
         <div className="grid">
