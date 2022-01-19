@@ -21,7 +21,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<App />}>
+        <Route exact path="/" element={<App isHomepage />}>
           <Route exact path="*" element={<NotFound />} />
           <Route exact index element={<Work />} />
           <Route exact path="about" element={<About />} />

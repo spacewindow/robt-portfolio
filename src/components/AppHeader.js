@@ -22,15 +22,17 @@ function AppHeader(props) {
       transform: translateY(0%);
       #logo-circle {
         opacity: 1;
+        fill: ${props.isHomepage ? "#000" : "#fff"};
       }
       #logo {
         opacity: 0;
+        fill: ${props.isHomepage ? "#000" : "#fff"};
       }
     }
     .app__menu__links {
       transform: translateY(50%);
       a {
-        color: #ffffff;
+        color: ${props.isHomepage ? "#000" : "#fff"};
       }
       ${mq.compact} {
         transform: translateY(40%);

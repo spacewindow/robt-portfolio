@@ -24,7 +24,11 @@ function CampaignAnalytics() {
   // Swiper for captions
   const [swiper, setSwiper] = useState(null);
 
-  const slideTo = (index) => swiper.slideTo(index);
+  const slideTo = (index) => {
+    if (swiper) {
+      swiper.slideTo(index);
+    }
+  };
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);

@@ -2,11 +2,11 @@ import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as Icons } from "./images/icons.svg";
 import AppHeader from "./components/AppHeader";
 
-function App() {
+function App(props) {
   return (
     <>
       <Icons />
-      <AppHeader />
+      <AppHeader isHomepage={props.isHomepage} />
       <Outlet />
       <footer id="contact" className="grid">
         <div className="grid-cell grid12">
