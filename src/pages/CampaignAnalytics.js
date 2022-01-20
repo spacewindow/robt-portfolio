@@ -1,5 +1,6 @@
 import ProjectHero from "../components/ProjectHero";
 import VideoSection from "../components/VideoSection";
+import AppFooter from "../components/AppFooter";
 import Image1 from "../images/campaign-analytics/detail6.jpg";
 import Image2 from "../images/campaign-analytics/detail5.jpg";
 import Image3 from "../images/campaign-analytics/detail3.jpg";
@@ -94,6 +95,18 @@ function CampaignAnalytics() {
           </p>
         </div>
       </section>
+      <AppFooter
+        previous={{
+          id: "allhomes",
+          client: "Domain Group",
+          title: "Allhomes",
+        }}
+        next={{
+          id: "songs-for-the-fallen",
+          client: "Critical Stages",
+          title: "Songs for the Fallen",
+        }}
+      />
     </div>
   );
 }

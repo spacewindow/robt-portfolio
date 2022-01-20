@@ -1,5 +1,7 @@
 import ProjectHero from "../components/ProjectHero";
 import VideoSection from "../components/VideoSection";
+import Image1 from "../images/wattyl-100-years/wattyl-mock.jpg";
+import Image2 from "../images/wattyl-100-years/wattyl-social.jpg";
 
 function Wattyl100Years() {
   const projectId = "wattyl-100-years";
@@ -48,6 +50,16 @@ function Wattyl100Years() {
         videoFileName="wattyl-mobile.mp4"
         chapterFileName="wattyl-mobile-chapters.vtt"
       />
+      <section className="section--grey section--image-blocks">
+        <div
+          className="image-block image-block--left"
+          style={{ backgroundImage: `url(${Image1})` }}
+        ></div>
+        <div
+          className="image-block image-block--right"
+          style={{ backgroundImage: `url(${Image2})` }}
+        ></div>
+      </section>
     </div>
   );
 }

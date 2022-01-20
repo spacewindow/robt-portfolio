@@ -1,4 +1,5 @@
 import ProjectHero from "../components/ProjectHero";
+import AppFooter from "../components/AppFooter";
 import WizardVideo from "../images/animated-characters/character-wizard.mp4";
 import WizardContextVideo from "../images/animated-characters/character-wizard-context.mp4";
 import PlayerVideo from "../images/animated-characters/character-player.mp4";
@@ -8,8 +9,9 @@ import RunnerContextVideo from "../images/animated-characters/character-runner-c
 import CharacterSketches from "../images/animated-characters/character-sketches.jpg";
 
 function AnimatedCharacters() {
+  const projectId = "animated-characters";
   return (
-    <>
+    <div className={projectId}>
       <ProjectHero
         title="Brand characters"
         client="Playground XYZ"
@@ -126,7 +128,19 @@ function AnimatedCharacters() {
           }}
         ></div>
       </section>
-    </>
+      <AppFooter
+        previous={{
+          id: "store-locator",
+          client: "Playground XYZ",
+          title: "Store Locator",
+        }}
+        next={{
+          id: "e-newsletters",
+          client: "CGU Insurance",
+          title: "E-Newsletters",
+        }}
+      />
+    </div>
   );
 }
 

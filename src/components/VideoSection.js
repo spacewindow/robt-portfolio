@@ -64,6 +64,7 @@ function VideoSection(props) {
   }, []);
 
   const handleCueChange = (event) => {
+    // console.log(event);
     let chapterIndex = event.target.track.activeCues[0].id;
     chapterIndex = parseInt(chapterIndex); // turn id string into an integer
     // console.log("chapter number is " + chapterIndex);
