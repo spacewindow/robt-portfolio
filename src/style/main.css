@@ -3385,6 +3385,7 @@ img {
   width: 0;
   height: 0;
   border-style: solid;
+  cursor: pointer;
 }
 .display__nav__arrow--left {
   border-width: 0.35rem 0.5rem 0.35rem 0;

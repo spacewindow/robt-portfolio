@@ -1,4 +1,3 @@
-import Video from "../images/campaign-analytics/campaigns-full.mp4";
 import raw from "raw.macro";
 // WebVTT file imported dynamically below using require(path + props.id) for <video><track> Read with raw(path + props.id) + parsed with node-webvtt below to generate an array for <SwiperSlide /> creation
 
@@ -21,7 +20,8 @@ const webvtt = require("node-webvtt");
 function VideoSection(props) {
   // Read WebVTT file and convert to object with cues Array
   const id = props.id;
-  const webvttText = raw(`../images/${id}/video-chapters.vtt`);
+  const file = props.chapterFileName;
+  const webvttText = raw(`../images/${id}/${file}`);
   const webvttObj = webvtt.parse(webvttText);
 
   // Swiper for captions
@@ -36,6 +36,8 @@ function VideoSection(props) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const paginationRef = useRef(null);
+
+  // sync video currentTime / cue to Swiper active slide
 
   const handleSlideChange = () => {
     syncVideo(swiper.activeIndex);
@@ -52,7 +54,7 @@ function VideoSection(props) {
   const CAVideo = useRef();
   const CAVideoTrackRef = useRef();
 
-  // sync video with slideShow
+  // sync Swiper active slide to video currentTime/cue
 
   useEffect(() => {
     // on load, set an event listener on specific <track> DOM element: onCueChange does not exist in ReactJS, annoyingly
@@ -67,6 +69,16 @@ function VideoSection(props) {
     // console.log("chapter number is " + chapterIndex);
     slideTo(chapterIndex);
   };
+
+  const videoSourcePath = require("../images/" +
+    props.id +
+    "/" +
+    props.videoFileName);
+
+  const videoTrackPath = require("../images/" +
+    props.id +
+    "/" +
+    props.chapterFileName);
 
   return (
     <section className={"display display--slider display--" + props.screenSize}>
@@ -123,13 +135,12 @@ function VideoSection(props) {
                 ref={CAVideo}
                 onChange={() => console.log("track change event")}
               >
-                <source src={Video} />
+                <source src={videoSourcePath} />
                 <track
                   ref={CAVideoTrackRef}
                   kind="chapters"
                   label="Locations"
-                  //   src={VideoChapters}
-                  src={require("../images/" + props.id + "/video-chapters.vtt")}
+                  src={videoTrackPath}
                   srcLang="en"
                   default
                   type="text/vtt"

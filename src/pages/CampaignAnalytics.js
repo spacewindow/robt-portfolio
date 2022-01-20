@@ -35,7 +35,12 @@ function CampaignAnalytics() {
         </div>
       </section>
 
-      <VideoSection screenSize="desktop" id="campaign-analytics" />
+      <VideoSection
+        screenSize="desktop"
+        id="campaign-analytics"
+        videoFileName="campaigns-full.mp4"
+        chapterFileName="video-chapters.vtt"
+      />
 
       <section className="section--details first">
         <div className="grid">
