@@ -1,5 +1,55 @@
+import ProjectHero from "../components/ProjectHero";
+import VideoSection from "../components/VideoSection";
+
 function Wattyl100Years() {
-  return <div>Wattyl: 100 Years</div>;
+  const projectId = "wattyl-100-years";
+  return (
+    <div className={projectId}>
+      <ProjectHero
+        title="Wattyl: 100 Years"
+        client="Wattyl"
+        id={projectId}
+        color="#55adf8"
+      />
+      <section className="section--grey section--intro">
+        <div className="grid">
+          <div
+            className="grid-cell grid6 intro-text"
+            style={{ paddingRight: "2rem" }}
+          >
+            <h2>
+              A social-oriented microsite leveraging the 100 year anniversary of
+              this iconic brand to re-engage with their customers.
+            </h2>
+          </div>
+          <div className="grid-cell grid3 credits">
+            <h3>My Role</h3>
+            <p>Web Development</p>
+            <p>Graphic Design</p>
+          </div>
+          <div className="grid-cell grid3">
+            <h3>Contributors</h3>
+            <p>Mary Cuy, Graphic Design</p>
+          </div>
+        </div>
+      </section>
+
+      <VideoSection
+        screenSize="desktop"
+        id={projectId}
+        videoFileName="wattyl-desktop.mp4"
+        chapterFileName="wattyl-desktop-chapters.vtt"
+        swiperHeading="Features"
+      />
+
+      <VideoSection
+        screenSize="mobile"
+        id={projectId}
+        videoFileName="wattyl-mobile.mp4"
+        chapterFileName="wattyl-mobile-chapters.vtt"
+      />
+    </div>
+  );
 }
 
 export default Wattyl100Years;

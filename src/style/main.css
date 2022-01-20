@@ -3881,7 +3881,7 @@ li {
 .wattyl-100-years .display--mobile {
   background-image: linear-gradient(to right, #536694, #2a355b);
 }
-.wattyl-100-years .display--mobile .caption {
+.wattyl-100-years .display--mobile p {
   color: #ffffff;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 }

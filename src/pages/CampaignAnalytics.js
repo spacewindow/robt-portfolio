@@ -7,12 +7,13 @@ import Image4 from "../images/campaign-analytics/detail4.jpg";
 import pdf from "../images/campaign-analytics/Rob Thwaites - Campaign Analytics UX.pdf";
 
 function CampaignAnalytics() {
+  const projectId = "campaign-analytics";
   return (
-    <>
+    <div className={projectId}>
       <ProjectHero
         title="Campaign Analytics"
         client="Playground XYZ"
-        id="campaign-analytics"
+        id={projectId}
         color="#55adf8"
       />
       <section className="section--grey section--intro">
@@ -37,9 +38,10 @@ function CampaignAnalytics() {
 
       <VideoSection
         screenSize="desktop"
-        id="campaign-analytics"
+        id={projectId}
         videoFileName="campaigns-full.mp4"
         chapterFileName="video-chapters.vtt"
+        swiperHeading="Features"
       />
 
       <section className="section--details first">
@@ -92,7 +94,7 @@ function CampaignAnalytics() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

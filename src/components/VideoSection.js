@@ -81,10 +81,14 @@ function VideoSection(props) {
     props.chapterFileName);
 
   return (
-    <section className={"display display--slider display--" + props.screenSize}>
+    <section
+      className={
+        props.id + " display display--slider display--" + props.screenSize
+      }
+    >
       <div className="grid no-gutter grid--column-grid">
         <div className="grid-cell grid3 top-content">
-          <h4>Features</h4>
+          <h4>{props.swiperHeading}</h4>
         </div>
 
         <div className="grid-cell grid3 bottom-content">
