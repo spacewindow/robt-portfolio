@@ -27,15 +27,14 @@ function VideoSection(props) {
   // Swiper for captions
   const [swiper, setSwiper] = useState(null);
 
-  const slideTo = (index) => {
-    if (swiper) {
-      swiper.slideTo(index);
-    }
-  };
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const paginationRef = useRef(null);
+
+  // Video for visuals
+
+  const CAVideo = useRef();
+  const CAVideoTrackRef = useRef();
 
   // sync video currentTime / cue to Swiper active slide
 
@@ -49,11 +48,6 @@ function VideoSection(props) {
     video.currentTime = chapterStartTime;
   };
 
-  // Video for visuals
-
-  const CAVideo = useRef();
-  const CAVideoTrackRef = useRef();
-
   // sync Swiper active slide to video currentTime/cue
 
   useEffect(() => {
@@ -66,9 +60,11 @@ function VideoSection(props) {
   const handleCueChange = (event) => {
     // console.log(event);
     let chapterIndex = event.target.track.activeCues[0].id;
+    // console.log("chapterIndex", chapterIndex);
     chapterIndex = parseInt(chapterIndex); // turn id string into an integer
-    // console.log("chapter number is " + chapterIndex);
-    slideTo(chapterIndex);
+    // if (swiper !== null) {
+    swiper.slideTo(chapterIndex);
+    // }
   };
 
   const videoSourcePath = require("../images/" +
@@ -116,7 +112,9 @@ function VideoSection(props) {
                 clickable: true,
               }}
               className="display__captions"
-              onSwiper={setSwiper}
+              onSwiper={(s) => {
+                setSwiper(s);
+              }}
               onSlideChange={handleSlideChange}
             >
               {webvttObj.cues.map((cue, index) => (
@@ -131,15 +129,7 @@ function VideoSection(props) {
         <div className="grid-cell grid9 grid-cell--display">
           <div className="display__screen__wrapper">
             <div className="display__screen">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls
-                ref={CAVideo}
-                onChange={() => console.log("track change event")}
-              >
+              <video autoPlay loop muted playsInline controls ref={CAVideo}>
                 <source src={videoSourcePath} />
                 <track
                   ref={CAVideoTrackRef}
