@@ -38,7 +38,7 @@ ReactDOM.render(
             path="campaign-analytics"
             element={<CampaignAnalytics />}
           />
-          <Route exact path="e-newsletter" element={<ENewsletters />} />
+          <Route exact path="e-newsletters" element={<ENewsletters />} />
           <Route exact path="michael-thwaites" element={<MichaelThwaites />} />
           <Route
             exact
