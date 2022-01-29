@@ -1,46 +1,64 @@
-import Image1 from "../images/e-newsletters/email-personalised.jpg";
-import Image2 from "../images/e-newsletters/email-red1.jpg";
-import Image3 from "../images/e-newsletters/email-red2.jpg";
-import Image4 from "../images/e-newsletters/email-red3.jpg";
-import Image5 from "../images/e-newsletters/email-red4.jpg";
-// import Image6 from "../images/e-newsletters/email-newsletter.jpg";
-// import Image7 from "../images/e-newsletters/mod-block-2.jpg";
-// import Image8 from "../images/e-newsletters/mod-block-1.png";
-// import Image9 from "../images/e-newsletters/mod-block-3.png";
-// import Image10 from "../images/e-newsletters/mod-block-4.png";
-import Image11 from "../images/e-newsletters/edm-mobile.jpg";
+import { useState, useEffect, useRef } from "react";
 import Lottie from "react-lottie";
 import animation1Data from "../images/e-newsletters/animation1.json";
 import animation2Data from "../images/e-newsletters/animation2.json";
 import animation3Data from "../images/e-newsletters/animation3.json";
+import ProjectHero from "../components/ProjectHero";
 
 function ENewsletters() {
-  const lottieOptions1 = {
-    loop: true,
-    autoplay: true,
-    animationData: animation1Data,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const blocksAnimRef = useRef(null);
+  const scrollAnimRef = useRef(null);
+
+  const blocksAnimContainer = useRef(null);
+  const scrollAnimContainer = useRef(null);
+
+  //
+
+  const handleScroll = () => {
+    console.log(scrollAnimRef);
+    const scrollAnimFrameCount = scrollAnimRef.current.anim.totalFrames;
+    const scrollProgress = progress(scrollAnimContainer, 0);
+    const scrollFrame = Math.floor(scrollAnimFrameCount * scrollProgress) - 1;
+
+    scrollAnimRef.current.anim.goToAndStop(scrollFrame, true);
   };
-  const lottieOptions2 = {
-    loop: true,
-    autoplay: true,
-    animationData: animation2Data,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+
+  const progress = (element, offsetStart) => {
+    const elementBlock = element.current.getBoundingClientRect();
+    var scrollTopStart = elementBlock.top - offsetStart;
+    var scrollTopEnd = elementBlock.height / 2 + scrollTopStart;
+
+    var currentPosition = window.pageYOffset;
+    var progress;
+    if (currentPosition < scrollTopStart) {
+      progress = 0;
+    } else if (currentPosition > scrollTopEnd) {
+      progress = 1;
+    } else {
+      progress =
+        (currentPosition - scrollTopStart) / (scrollTopEnd - scrollTopStart);
+    }
+    return progress;
   };
-  const lottieOptions3 = {
-    loop: true,
-    autoplay: true,
-    animationData: animation3Data,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+
+  const projectId = "e-newsletters";
+
   return (
     <div>
+      <ProjectHero
+        title="E-newsletters"
+        client="CGU Insurance"
+        id={projectId}
+        color="#1AA954"
+      />
       <section className="section--intro">
         <div className="grid">
           <div
@@ -70,7 +88,7 @@ function ENewsletters() {
                 <h4>Personalised Content</h4>
                 <p>
                   Emails could be populated with dynamically generated content
-                  from the customer’s profile, or based on their interests using
+                  from the customer's profile, or based on their interests using
                   smart audience segmenting in Salesforce Marketing Cloud.
                 </p>
               </div>
@@ -78,7 +96,14 @@ function ENewsletters() {
           </div>
         </div>
         <div className="image-block image-block--right">
-          <Lottie options={lottieOptions1} />
+          <Lottie
+            animationData={animation1Data}
+            options={{
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice",
+              },
+            }}
+          />
         </div>
       </section>
 
@@ -97,8 +122,22 @@ function ENewsletters() {
             </div>
           </div>
         </div>
-        <div className="image-block image-block--right">
-          <Lottie options={lottieOptions2} />
+        <div
+          className="image-block image-block--right"
+          ref={blocksAnimContainer}
+        >
+          <Lottie
+            ref={blocksAnimRef}
+            // animationData={animation2Data}
+            options={{
+              autoplay: false,
+              loop: false,
+              animationData: animation2Data,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice",
+              },
+            }}
+          />
         </div>
       </section>
 
@@ -113,8 +152,19 @@ function ENewsletters() {
 
         <div className="grid-cell grid12 grid-cell--display">
           <div className="display__screen__wrapper">
-            <div className="display__screen">
-              <Lottie options={lottieOptions3} />
+            <div className="display__screen" ref={scrollAnimContainer}>
+              <Lottie
+                ref={scrollAnimRef}
+                // animationData={animation3Data}
+                options={{
+                  autoplay: false,
+                  loop: false,
+                  animationData: animation3Data,
+                  rendererSettings: {
+                    preserveAspectRatio: "xMidYMid slice",
+                  },
+                }}
+              />
             </div>
           </div>
         </div>
