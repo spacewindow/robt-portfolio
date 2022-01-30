@@ -6,7 +6,42 @@ import animation3Data from "../images/e-newsletters/animation3.json";
 import ProjectHero from "../components/ProjectHero";
 
 function ENewsletters() {
+  const [animations, _setAnimations] = useState([]);
+  // Because I am going to use this state in event handlers / listeners below, i have to make a ref to the state https://medium.com/geographit/accessing-react-state-in-event-listeners-with-usestate-and-useref-hooks-8cceee73c559. PS WTF??? I thought this kind of shit was the whole point of state
+
+  const animationsRef = useRef(animations);
+  const setAnimations = (data) => {
+    animationsRef.current = data;
+    _setAnimations(data);
+  };
+
+  const blocksLottieRef = useRef(null);
+  const blocksContainerRef = useRef(null);
+
+  const scrollLottieRef = useRef(null);
+  const scrollAnimContainerRef = useRef(null);
+
+  // made a locally scoped function for Element.getBoundingClientRect() so I unpack the properties I want from the DOMRect element into an Object instead
+
+  const getBoundingClientRect = (element) => {
+    const { top, right, bottom, left, width, height, x, y } =
+      element.getBoundingClientRect();
+    return { top, right, bottom, left, width, height, x, y };
+  };
+
+  // on render, get the bits I need out of my refs into State rect position (esp. from top of document) of each animation block
+
   useEffect(() => {
+    const animationsUpdate = [
+      ...animations,
+      {
+        id: "blocks",
+        rect: getBoundingClientRect(blocksContainerRef.current),
+        totalFrames: blocksLottieRef.current.anim.totalFrames,
+      },
+    ];
+    setAnimations(animationsUpdate);
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -14,27 +49,19 @@ function ENewsletters() {
     };
   }, []);
 
-  const blocksAnimRef = useRef(null);
-  const scrollAnimRef = useRef(null);
-
-  const blocksAnimContainer = useRef(null);
-  const scrollAnimContainer = useRef(null);
-
-  //
-
   const handleScroll = () => {
-    console.log(scrollAnimRef);
-    const scrollAnimFrameCount = scrollAnimRef.current.anim.totalFrames;
-    const scrollProgress = progress(scrollAnimContainer, 0);
-    const scrollFrame = Math.floor(scrollAnimFrameCount * scrollProgress) - 1;
+    const anim = animationsRef.current.find((anim) => (anim.id = "blocks"));
 
-    scrollAnimRef.current.anim.goToAndStop(scrollFrame, true);
+    const blocksProgress = progress(anim, 0) - 0.00001; // Lottie bug - 100% progress always shows blank frame :{ Did not need a whole integer for current frame, thankfully
+
+    const blocksFrame = anim.totalFrames * blocksProgress;
+
+    blocksLottieRef.current.anim.goToAndStop(blocksFrame, true);
   };
 
-  const progress = (element, offsetStart) => {
-    const elementBlock = element.current.getBoundingClientRect();
-    var scrollTopStart = elementBlock.top - offsetStart;
-    var scrollTopEnd = elementBlock.height / 2 + scrollTopStart;
+  const progress = (animation, offsetStart) => {
+    var scrollTopStart = animation.rect.top - offsetStart;
+    var scrollTopEnd = animation.rect.height / 2 + scrollTopStart;
 
     var currentPosition = window.pageYOffset;
     var progress;
@@ -124,10 +151,10 @@ function ENewsletters() {
         </div>
         <div
           className="image-block image-block--right"
-          ref={blocksAnimContainer}
+          ref={blocksContainerRef}
         >
           <Lottie
-            ref={blocksAnimRef}
+            ref={blocksLottieRef}
             // animationData={animation2Data}
             options={{
               autoplay: false,
@@ -152,9 +179,9 @@ function ENewsletters() {
 
         <div className="grid-cell grid12 grid-cell--display">
           <div className="display__screen__wrapper">
-            <div className="display__screen" ref={scrollAnimContainer}>
+            <div className="display__screen" ref={scrollAnimContainerRef}>
               <Lottie
-                ref={scrollAnimRef}
+                ref={scrollLottieRef}
                 // animationData={animation3Data}
                 options={{
                   autoplay: false,
