@@ -25,7 +25,13 @@ function VideoSection(props) {
   const webvttObj = webvtt.parse(webvttText);
 
   // Swiper for captions
-  const [swiper, setSwiper] = useState(null);
+  const [swiper, _setSwiper] = useState(null);
+
+  const swiperRef = useRef(swiper);
+  const setSwiper = (data) => {
+    swiperRef.current = data;
+    _setSwiper(data);
+  };
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -33,18 +39,33 @@ function VideoSection(props) {
 
   // Video for visuals
 
-  const CAVideo = useRef();
-  const CAVideoTrackRef = useRef();
+  const ThisVideo = useRef();
+  const ThisVideoTrackRef = useRef();
 
   // sync video currentTime / cue to Swiper active slide
 
-  const handleSlideChange = () => {
-    syncVideo(swiper.activeIndex);
+  const handleSlideChange = (e) => {
+    // Seeking in the video control will trigger handleCueChange, which also triggers a slideChange. In this case, we don't want to syncVideo (which has the effect of sending the video back to the start of the current chapter)
+    // So check whether video cue and slide activeIndex are the same already ...
+    const swiperIndex = swiperRef.current.activeIndex;
+    const videoCueId = ThisVideo.current.textTracks[0].activeCues[0].id;
+    if (swiperIndex.toString() === videoCueId) {
+      // this is to stop video seeking triggering
+      console.log("Don't update time, already in chapter");
+      return; // early return
+    }
+    syncVideo(swiperIndex);
   };
 
-  const syncVideo = (chapterIndex) => {
-    const video = CAVideo.current;
-    const chapterStartTime = video.textTracks[0].cues[chapterIndex].startTime;
+  const syncVideo = (swiperIndex) => {
+    const video = ThisVideo.current;
+    const videoCueId = video.textTracks[0].activeCues[0].id;
+    if (swiperIndex.toString() === videoCueId) {
+      // this is to stop video seeking triggering
+      console.log("Don't update time, already in chapter");
+      return;
+    }
+    const chapterStartTime = video.textTracks[0].cues[swiperIndex].startTime;
     video.currentTime = chapterStartTime;
   };
 
@@ -52,7 +73,7 @@ function VideoSection(props) {
 
   useEffect(() => {
     // on load, set an event listener on specific <track> DOM element: onCueChange does not exist in ReactJS, annoyingly
-    CAVideoTrackRef.current.oncuechange = (e) => {
+    ThisVideoTrackRef.current.oncuechange = (e) => {
       handleCueChange(e);
     };
   }, []);
@@ -63,7 +84,7 @@ function VideoSection(props) {
     // console.log("chapterIndex", chapterIndex);
     chapterIndex = parseInt(chapterIndex); // turn id string into an integer
     // if (swiper !== null) {
-    swiper.slideTo(chapterIndex);
+    swiperRef.current.slideTo(chapterIndex);
     // }
   };
 
@@ -129,10 +150,10 @@ function VideoSection(props) {
         <div className="grid-cell grid9 grid-cell--display">
           <div className="display__screen__wrapper">
             <div className="display__screen">
-              <video autoPlay loop muted playsInline controls ref={CAVideo}>
+              <video autoPlay loop muted playsInline controls ref={ThisVideo}>
                 <source src={videoSourcePath} />
                 <track
-                  ref={CAVideoTrackRef}
+                  ref={ThisVideoTrackRef}
                   kind="chapters"
                   label="Locations"
                   src={videoTrackPath}

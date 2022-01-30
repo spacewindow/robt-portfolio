@@ -19,7 +19,7 @@ function ENewsletters() {
   const blocksContainerRef = useRef(null);
 
   const scrollLottieRef = useRef(null);
-  const scrollAnimContainerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   // made a locally scoped function for Element.getBoundingClientRect() so I unpack the properties I want from the DOMRect element into an Object instead
 
@@ -29,6 +29,10 @@ function ENewsletters() {
     return { top, right, bottom, left, width, height, x, y };
   };
 
+  const getLottieTotalFrames = (lottieRef) => {
+    return lottieRef.current.anim.totalFrames;
+  };
+
   // on render, get the bits I need out of my refs into State rect position (esp. from top of document) of each animation block
 
   useEffect(() => {
@@ -36,8 +40,17 @@ function ENewsletters() {
       ...animations,
       {
         id: "blocks",
+        lottie: blocksLottieRef,
+        container: blocksContainerRef,
         rect: getBoundingClientRect(blocksContainerRef.current),
-        totalFrames: blocksLottieRef.current.anim.totalFrames,
+        totalFrames: getLottieTotalFrames(blocksLottieRef),
+      },
+      {
+        id: "scroll",
+        lottie: scrollLottieRef,
+        container: scrollContainerRef,
+        rect: getBoundingClientRect(scrollContainerRef.current),
+        totalFrames: getLottieTotalFrames(scrollLottieRef),
       },
     ];
     setAnimations(animationsUpdate);
@@ -50,13 +63,13 @@ function ENewsletters() {
   }, []);
 
   const handleScroll = () => {
-    const anim = animationsRef.current.find((anim) => (anim.id = "blocks"));
-
-    const blocksProgress = progress(anim, 0) - 0.00001; // Lottie bug - 100% progress always shows blank frame :{ Did not need a whole integer for current frame, thankfully
-
-    const blocksFrame = anim.totalFrames * blocksProgress;
-
-    blocksLottieRef.current.anim.goToAndStop(blocksFrame, true);
+    const anims = animationsRef.current;
+    anims.forEach((a) => {
+      // console.log("rect?", a.id, a.rect.top);
+      const animProgress = progress(a, 100);
+      const frame = a.totalFrames * animProgress;
+      a.lottie.current.anim.goToAndStop(frame, true);
+    });
   };
 
   const progress = (animation, offsetStart) => {
@@ -68,7 +81,7 @@ function ENewsletters() {
     if (currentPosition < scrollTopStart) {
       progress = 0;
     } else if (currentPosition > scrollTopEnd) {
-      progress = 1;
+      progress = 0.999; // was originally 1, but accounting for Lottie bug which hides last frame :{
     } else {
       progress =
         (currentPosition - scrollTopStart) / (scrollTopEnd - scrollTopStart);
@@ -179,7 +192,7 @@ function ENewsletters() {
 
         <div className="grid-cell grid12 grid-cell--display">
           <div className="display__screen__wrapper">
-            <div className="display__screen" ref={scrollAnimContainerRef}>
+            <div className="display__screen" ref={scrollContainerRef}>
               <Lottie
                 ref={scrollLottieRef}
                 // animationData={animation3Data}
