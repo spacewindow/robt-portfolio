@@ -66,6 +66,22 @@ const cues = {
       styles: "",
     },
   ],
+  "michael-thwaites": [
+    {
+      id: "0",
+      start: 0,
+      end: 9.9,
+      text: "The homepage shows a grid of images, one for each poem. Some poems have audio recordings, indicated by an icon.",
+      styles: "",
+    },
+    {
+      id: "1",
+      start: 10,
+      end: 12,
+      text: "Elegant typesetting of each poem is accompanied by 'extras', such as notes comments and audio.",
+      styles: "",
+    },
+  ],
 };
 
 export default cues;
