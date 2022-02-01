@@ -41,7 +41,6 @@ function CampaignAnalytics() {
         screenSize="desktop"
         id={projectId}
         videoFileName="campaigns-full.mp4"
-        chapterFileName="video-chapters.vtt"
         swiperHeading="Features"
       />
 
