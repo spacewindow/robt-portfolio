@@ -40,7 +40,6 @@ function Wattyl100Years() {
         screenSize="desktop"
         id={projectId}
         videoFileName="wattyl-desktop.mp4"
-        chapterFileName="wattyl-desktop-chapters.vtt"
         swiperHeading="Features"
       />
 
@@ -48,7 +47,6 @@ function Wattyl100Years() {
         screenSize="mobile"
         id={projectId}
         videoFileName="wattyl-mobile.mp4"
-        chapterFileName="wattyl-mobile-chapters.vtt"
       />
       <section className="section--grey section--image-blocks">
         <div

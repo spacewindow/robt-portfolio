@@ -70,16 +70,60 @@ const cues = {
     {
       id: "0",
       start: 0,
-      end: 9.9,
+      end: 15,
       text: "The homepage shows a grid of images, one for each poem. Some poems have audio recordings, indicated by an icon.",
       styles: "",
     },
     {
       id: "1",
-      start: 10,
-      end: 12,
+      start: 15.001,
+      end: 37,
       text: "Elegant typesetting of each poem is accompanied by 'extras', such as notes comments and audio.",
       styles: "",
+    },
+  ],
+  "wattyl-100-years": [
+    {
+      id: "0",
+      start: 3.0,
+      end: 10.0,
+      text: "A custom slider introduces the anniversary and draws attention to the competition.",
+    },
+
+    {
+      id: "1",
+      start: 10.001,
+      end: 25.0,
+      text: "A Historical Timeline tells the story of the brand over two centuries, in easily shareable entries.",
+    },
+
+    {
+      id: "2",
+      start: 25.001,
+      end: 36.0,
+      text: "Rich media further enhances the story in the timeline.",
+    },
+  ],
+  "wattyl-100-years-mob": [
+    {
+      id: "0",
+      start: 0,
+      end: 13.0,
+      text: "Each component displays perfectly on mobile devices.",
+    },
+
+    {
+      id: "1",
+      start: 14.0,
+      end: 23.0,
+      text: "The competition for best DIY Tip is introduced through a gallery.",
+    },
+
+    {
+      id: "2",
+      start: 27.832,
+      end: 44.0,
+      text: "Entry form contains javascript validation and integration with Marketo lead capturing API.",
     },
   ],
 };
