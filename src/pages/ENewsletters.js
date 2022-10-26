@@ -62,21 +62,14 @@ function ENewsletters() {
     };
   }, []);
 
-  const handleScroll = () => {
-    const anims = animationsRef.current;
-    anims.forEach((a) => {
-      // console.log("rect?", a.id, a.rect.top);
-      const animProgress = progress(a, 100);
-      const frame = a.totalFrames * animProgress;
-      a.lottie.current.anim.goToAndStop(frame, true);
-    });
-  };
-
   const progress = (animation, offsetStart) => {
     var scrollTopStart = animation.rect.top - offsetStart;
     var scrollTopEnd = animation.rect.height / 2 + scrollTopStart;
 
     var currentPosition = window.pageYOffset;
+
+    console.log(animation.id, scrollTopStart, currentPosition);
+
     var progress;
     if (currentPosition < scrollTopStart) {
       progress = 0;
@@ -87,6 +80,15 @@ function ENewsletters() {
         (currentPosition - scrollTopStart) / (scrollTopEnd - scrollTopStart);
     }
     return progress;
+  };
+
+  const handleScroll = () => {
+    const anims = animationsRef.current;
+    anims.forEach((a) => {
+      const animProgress = progress(a, 200);
+      const frame = a.totalFrames * animProgress;
+      a.lottie.current.anim.goToAndStop(frame, true);
+    });
   };
 
   const projectId = "e-newsletters";
