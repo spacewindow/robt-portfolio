@@ -1,5 +1,15 @@
 const projects = [
   {
+    id: "allhomes-app",
+    title: "Allhomes App",
+    type: "app",
+    client: "Domain | Allhomes",
+    description:
+      "Design and delivery of multiple features to engage customers on Canberra's favourite property app",
+    color: "#e81043",
+    roles: ["UI Design", "User Testing", "QA"],
+  },
+  {
     id: "campaign-analytics",
     title: "Campaign Analytics",
     type: "desktop / web app",

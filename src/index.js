@@ -51,7 +51,7 @@ ReactDOM.render(
             element={<SongsForTheFallen />}
           />
           <Route exact path="wattyl-100-years" element={<Wattyl100Years />} />
-          <Route exact path="allhomes" element={<Allhomes />} />
+          <Route exact path="allhomes-app" element={<Allhomes />} />
           <Route exact path="employment" element={<Employment />} />
         </Route>
       </Routes>
