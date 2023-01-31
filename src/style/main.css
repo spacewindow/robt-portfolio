@@ -3388,7 +3388,7 @@ img {
   cursor: pointer;
 }
 .display__nav__arrow--left {
-  border-width: 0.35rem 0.5rem 0.35rem 0;
+  border-width: 0.5rem 0.75rem 0.5rem 0;
   border-color: transparent #c8c8c8 transparent transparent;
   margin-right: 0.75rem;
 }
@@ -3396,7 +3396,7 @@ img {
   border-color: transparent rgba(200, 200, 200, 0.6) transparent transparent;
 }
 .display__nav__arrow--right {
-  border-width: 0.35rem 0 0.35rem 0.5rem;
+  border-width: 0.5rem 0 0.5rem 0.75rem;
   border-color: transparent transparent transparent #c8c8c8;
   margin-left: 0.75rem;
 }
@@ -4345,4 +4345,9 @@ li {
   align-items: center;
   justify-content: space-around;
   padding: 0 20%;
+}
+
+.display__nav .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
 }

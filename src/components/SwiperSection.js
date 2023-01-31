@@ -33,11 +33,11 @@ function SwiperSection(props) {
       }
     >
       <div className="grid no-gutter grid--column-grid">
-        <div className="grid-cell grid3 top-content">
+        <div className="grid-cell grid4 top-content">
           <h4>{props.swiperHeading}</h4>
         </div>
 
-        <div className="grid-cell grid3 bottom-content">
+        <div className="grid-cell grid4 bottom-content">
           <div className="display__nav start">
             <div
               className="display__nav__arrow display__nav__arrow--left"

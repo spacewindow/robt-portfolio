@@ -1,10 +1,13 @@
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as Icons } from "./images/icons.svg";
 import AppHeader from "./components/AppHeader";
+import allStyles from "./style/styles";
+import { Global, css } from "@emotion/react";
 
 function App(props) {
   return (
     <>
+      <Global styles={allStyles} />
       <Icons />
       <AppHeader isHomepage={props.isHomepage} />
       <Outlet />

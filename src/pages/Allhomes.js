@@ -37,8 +37,8 @@ function AllhomesApp() {
       </section>
       <SwiperSection
         id="allhomes-app"
-        swiperHeading="School Search"
-        screenSize="mobile"
+        swiperHeading="My Work"
+        screenSize="square"
         data={[
           {
             image: Image1,
